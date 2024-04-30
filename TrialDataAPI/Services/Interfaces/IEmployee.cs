@@ -2,7 +2,7 @@
 
 namespace TrialDataAPI.Services.Interfaces
 {
-    public interface IEmployeeService
+    public interface IEmployee
     {
         Employee Create(Employee employee);
         IEnumerable<Employee> GetAll();

@@ -10,6 +10,6 @@ namespace TrialDataAPI.Data
         
         }
 
-        DbSet<Employee> employees { get; set; }
+        public DbSet<Employee> employees { get; set; }
     }
 }
