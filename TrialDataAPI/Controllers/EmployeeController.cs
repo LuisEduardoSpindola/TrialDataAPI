@@ -16,15 +16,19 @@ namespace TrialDataAPI.Controllers
 
 
         [HttpPost]
-        public IActionResult Create([FromBody] EmployeeViewModel employeeView)
+        public IActionResult Create([FromForm] EmployeeViewModel employeeView)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            var filePath = Path.Combine("Storage", employeeView.Photo.FileName);
+            Stream fileStream = new FileStream(filePath, FileMode.Create);
+            employeeView.Photo.CopyTo(fileStream);
 
             var employee = new Employee
             {
                 Name = employeeView.Name,
-                Age = employeeView.Age
+                Age = employeeView.Age,
+                Photo = filePath,
             };
 
             var createdEmployee = _employee.Create(employee);
@@ -38,6 +42,15 @@ namespace TrialDataAPI.Controllers
         {
             var employees = _employee.GetAll();
             return Ok(employees);
+        }
+
+        [HttpPost]
+        [Route("{id}/download")]
+        public IActionResult GetPhotoByDownload(int id) 
+        {
+            var employee = _employee.GetById(id);
+            var databytes = System.IO.File.ReadAllBytes(employee.Photo);
+            return File(databytes, "image/png");
         }
     }
 }

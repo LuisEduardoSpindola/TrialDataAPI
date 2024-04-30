@@ -34,7 +34,7 @@ namespace TrialDataAPI.Services.Repositories
             return _context.employees.ToList();
         }
 
-        public Employee GetById(int id)
+        public Employee? GetById(int id)
         {
             return _context.employees.Find(id);
         }

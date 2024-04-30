@@ -6,7 +6,7 @@ namespace TrialDataAPI.Services.Interfaces
     {
         Employee Create(Employee employee);
         IEnumerable<Employee> GetAll();
-        Employee GetById(int id);
+        Employee? GetById(int id);
         Employee Update(Employee employee);
         void Delete(int id);
     }   
