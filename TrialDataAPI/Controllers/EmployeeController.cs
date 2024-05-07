@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TrialDataAPI.Models;
 using TrialDataAPI.Services.Interfaces;
 using TrialDataAPI.ViewModel;
@@ -9,12 +10,16 @@ namespace TrialDataAPI.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployee _employee;
-        public EmployeeController(IEmployee employee)
+        private readonly ILogger<EmployeeController> _logger;
+
+
+        public EmployeeController(IEmployee employee, ILogger<EmployeeController> logger)
         {
             _employee = employee;
+            _logger = logger;
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromForm] EmployeeViewModel employeeView)
         {
@@ -36,12 +41,13 @@ namespace TrialDataAPI.Controllers
             return Ok(createdEmployee);
         }
 
-
         [HttpGet]
         public IActionResult Get(int pageNumber, int qnty)
         {
+            //_logger.Log(LogLevel.Error, "Erro...");
             var employees = _employee.GetAll(pageNumber, qnty);
             return Ok(employees);
+            
         }
 
         [HttpPost]
