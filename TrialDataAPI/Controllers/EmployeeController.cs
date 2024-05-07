@@ -38,9 +38,9 @@ namespace TrialDataAPI.Controllers
 
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(int pageNumber, int qnty)
         {
-            var employees = _employee.GetAll();
+            var employees = _employee.GetAll(pageNumber, qnty);
             return Ok(employees);
         }
 

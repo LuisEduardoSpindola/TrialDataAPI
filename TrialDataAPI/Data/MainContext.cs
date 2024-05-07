@@ -7,7 +7,7 @@ namespace TrialDataAPI.Data
     {
         public MainContext(DbContextOptions<MainContext> options) : base(options) 
         {
-        
+            
         }
 
         public DbSet<Employee> employees { get; set; }
