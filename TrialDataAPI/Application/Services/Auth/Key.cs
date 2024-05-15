@@ -1,4 +1,4 @@
-﻿namespace TrialDataAPI.Services.Auth
+﻿namespace TrialDataAPI.Application.Services.Auth
 {
     public class Key
     {

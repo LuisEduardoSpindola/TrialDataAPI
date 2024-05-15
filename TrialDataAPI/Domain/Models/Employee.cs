@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TrialDataAPI.Models
+namespace TrialDataAPI.Domain.Models
 {
     public class Employee
     {
@@ -8,7 +8,6 @@ namespace TrialDataAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
-        
         public string? Photo { get; set; }
     }
 }

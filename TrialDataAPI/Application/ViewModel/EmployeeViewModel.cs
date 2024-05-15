@@ -1,4 +1,4 @@
-﻿namespace TrialDataAPI.ViewModel
+﻿namespace TrialDataAPI.Application.ViewModel
 {
     public class EmployeeViewModel
     {

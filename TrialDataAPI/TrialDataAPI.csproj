@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\" />
+    <Folder Include="Domain\DTOs\" />
+    <Folder Include="Infraestructure\" />
     <Folder Include="Storage\" />
   </ItemGroup>
 

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using TrialDataAPI.Models;
-using TrialDataAPI.Services.Auth;
+using TrialDataAPI.Domain.Models;
+using TrialDataAPI.Application.Services.Auth;
 
-namespace TrialDataAPI.Controllers;
+namespace TrialDataAPI.Application.Controllers;
 
 [ApiController]
 [Route("api/v1/Auth")]

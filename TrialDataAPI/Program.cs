@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using TrialDataAPI.Data;
-using TrialDataAPI.Services.Auth;
-using TrialDataAPI.Services.Interfaces;
-using TrialDataAPI.Services.Repositories;
+using TrialDataAPI.Infraestructure.Data;
+using TrialDataAPI.Application.Services.Auth;
+using TrialDataAPI.Application.Services.Interfaces;
+using TrialDataAPI.Infraestructure.Services.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,8 +75,13 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseExceptionHandler("/error");
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseExceptionHandler("/error");
 }
 
 app.UseHttpsRedirection();

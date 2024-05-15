@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TrialDataAPI.Models;
+using TrialDataAPI.Domain.Models;
 
-namespace TrialDataAPI.Data
+namespace TrialDataAPI.Infraestructure.Data
 {
     public class MainContext : DbContext
     {

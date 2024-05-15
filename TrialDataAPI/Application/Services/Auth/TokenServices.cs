@@ -4,9 +4,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
-using TrialDataAPI.Models;
+using TrialDataAPI.Domain.Models;
 
-namespace TrialDataAPI.Services.Auth
+namespace TrialDataAPI.Application.Services.Auth
 {
     public class TokenServices
     {

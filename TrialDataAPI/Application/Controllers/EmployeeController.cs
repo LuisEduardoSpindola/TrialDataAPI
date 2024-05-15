@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TrialDataAPI.Models;
-using TrialDataAPI.Services.Interfaces;
-using TrialDataAPI.ViewModel;
+using TrialDataAPI.Domain.Models;
+using TrialDataAPI.Application.Services.Interfaces;
+using TrialDataAPI.Application.ViewModel;
 
-namespace TrialDataAPI.Controllers
+namespace TrialDataAPI.Application.Controllers
 {
     [Route("/v1/employee")]
     public class EmployeeController : ControllerBase
@@ -44,6 +44,8 @@ namespace TrialDataAPI.Controllers
         [HttpGet]
         public IActionResult Get(int pageNumber, int qnty)
         {
+            //throw new Exception("Erro de teste... ");
+            
             //_logger.Log(LogLevel.Error, "Erro...");
             var employees = _employee.GetAll(pageNumber, qnty);
             return Ok(employees);

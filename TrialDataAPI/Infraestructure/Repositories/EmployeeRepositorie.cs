@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TrialDataAPI.Data;
-using TrialDataAPI.Models;
-using TrialDataAPI.Services.Interfaces;
+using TrialDataAPI.Infraestructure.Data;
+using TrialDataAPI.Domain.Models;
+using TrialDataAPI.Application.Services.Interfaces;
 
-namespace TrialDataAPI.Services.Repositories
+namespace TrialDataAPI.Infraestructure.Services.Repositories
 {
     public class EmployeeRepository : IEmployee
     {

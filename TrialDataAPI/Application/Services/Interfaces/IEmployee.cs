@@ -1,6 +1,6 @@
-﻿using TrialDataAPI.Models;
+﻿using TrialDataAPI.Domain.Models;
 
-namespace TrialDataAPI.Services.Interfaces
+namespace TrialDataAPI.Application.Services.Interfaces
 {
     public interface IEmployee
     {
