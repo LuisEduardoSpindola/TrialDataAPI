@@ -4,6 +4,7 @@ using System.Linq;
 using TrialDataAPI.Infraestructure.Data;
 using TrialDataAPI.Domain.Models;
 using TrialDataAPI.Application.Services.Interfaces;
+using TrialDataAPI.Domain.DTOs;
 
 namespace TrialDataAPI.Infraestructure.Services.Repositories
 {
@@ -29,9 +30,18 @@ namespace TrialDataAPI.Infraestructure.Services.Repositories
             return employee;
         }
 
-        public IEnumerable<Employee> GetAll(int pageNumber, int qnty)
+        public IEnumerable<EmployeeDTO> GetAll(int pageNumber, int qnty)
         {
-            return _context.employees.Skip(pageNumber * qnty).Take(qnty).ToList();
+            return _context.employees.Skip(pageNumber * qnty)
+                .Take(qnty)
+                .Select(b => new EmployeeDTO()
+                {
+                    Id = b.Id,
+                    Name = b.Name,
+                    Photo = b.Photo,
+                    
+                })
+                .ToList();
         }
 
         public Employee? GetById(int id)
